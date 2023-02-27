@@ -86,3 +86,5 @@ ide-helper:
 	docker compose exec app php artisan ide-helper:generate
 	docker compose exec app php artisan ide-helper:meta
 	docker compose exec app php artisan ide-helper:models --nowrite
+cache:
+	docker compose exec app php artisan cache:clear
