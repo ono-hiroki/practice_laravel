@@ -21,7 +21,7 @@
     {{--    @endcomponent--}}
     @include('components.message', ['msg_title'=>'OK', 'msg_content'=>'サブビューです。'])
     @each('components.item', $data, 'item')
-
+    <p>Controller value<br>'view_message' = {{$view_message}}</p>
 @endsection
 
 @section('footer')
