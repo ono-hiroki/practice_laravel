@@ -36,5 +36,5 @@
 @endsection
 
 @section('footer')
-    copylight 2018 hoge
+    copyright 2018 hoge
 @endsection
