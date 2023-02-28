@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+    // global middlewareの登録
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -21,6 +22,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+//        \App\Http\Middleware\HelloMiddleware::class,
     ];
 
     /**
@@ -42,6 +44,9 @@ class Kernel extends HttpKernel
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+        'hello' => [
+            \App\Http\Middleware\HelloMiddleware::class,
         ],
     ];
 
