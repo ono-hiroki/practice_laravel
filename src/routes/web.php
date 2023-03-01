@@ -22,4 +22,7 @@ Route::get('/', function () {
 
 Route::get('/hello', [HelloController::class, 'index'])->middleware('hello');
 Route::post('/hello', [HelloController::class, 'post']);
+
 Route::get('person', [PersonController::class, 'index']);
+Route::get('person/find', [PersonController::class, 'find']);
+Route::post('person/find', [PersonController::class, 'search']);
