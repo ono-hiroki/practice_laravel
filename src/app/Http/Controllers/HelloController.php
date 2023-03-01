@@ -11,21 +11,25 @@ class HelloController extends Controller
 {
     public function index(Request $request, Response $response)
     {
-        $validator = Validator::make($request->all(), [
-            'id' => 'required',
-            'pass' => 'required',
-        ]);
-        if ($validator->fails()) {
-            $msg = 'クエリーに問題があります。';
-        } else {
-            $msg = 'ID/PASSを受け付けました。フォームを入力下さい。';
-        }
+      if ($request->hasCookie('msg')) {
+        $msg = 'Cookie: ' . $request->cookie('msg');
+      } else {
+        $msg = '※クッキーはありません。';
+      }
 
         return view('hello.index', ['msg' => $msg]);
     }
 
-    public function post(HelloRequest $request)
+    public function post(Request $request)
     {
-        return view('hello.index', ['msg' => '正しく入力されました！']);
+        $validate_rule = [
+            'msg' => 'required',
+        ];
+        $this->validate($request, $validate_rule);
+        $msg = $request->msg;
+        $response = new Response(view('hello.index', ['msg' => '「' . $msg . '」をクッキーに保存しました。']));
+        $response->cookie('msg', $msg, 100);
+
+        return $response;
     }
 }

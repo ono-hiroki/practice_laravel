@@ -11,7 +11,8 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array<int, string>
      */
+    // csrf対策を無効にするURLを指定
     protected $except = [
-        //
+       'hello'
     ];
 }
