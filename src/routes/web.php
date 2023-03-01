@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\PersonController;
 use App\Http\Middleware\HelloMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,4 @@ Route::get('/', function () {
 
 Route::get('/hello', [HelloController::class, 'index'])->middleware('hello');
 Route::post('/hello', [HelloController::class, 'post']);
-
+Route::get('person', [PersonController::class, 'index']);
