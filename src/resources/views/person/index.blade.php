@@ -18,9 +18,7 @@
         </tr>
         @foreach ($items as $item)
             <tr>
-                <td>{{ $item->name }}</td>
-                <td>{{ $item->make }}</td>
-                <td>{{ $item->age }}</td>
+               <td>{{$item->getData()}}</td>
             </tr>
         @endforeach
     </table>

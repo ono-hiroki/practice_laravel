@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     use HasFactory;
+
+    function getData(): string
+    {
+        return $this->id . ': ' . $this->name . ' (' . $this->age . ')';
+    }
 }
