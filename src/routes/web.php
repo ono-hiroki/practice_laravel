@@ -25,6 +25,8 @@ Route::get('/', function () {
 Route::get('/hello', [HelloController::class, 'index'])->middleware('hello');
 Route::post('/hello', [HelloController::class, 'post']);
 Route::get('/hello/reset', [HelloController::class, 'reset']);
+Route::get('/hello/session', [HelloController::class, 'ses_get']);
+Route::post('/hello/session', [HelloController::class, 'ses_put']);
 
 Route::get('person', [PersonController::class, 'index']);
 Route::get('person/find', [PersonController::class, 'find']);
