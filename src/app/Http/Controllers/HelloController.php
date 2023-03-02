@@ -32,4 +32,9 @@ class HelloController extends Controller
 
         return $response;
     }
+
+    public function reset(Request $request)
+    {
+        return view('hello.reset');
+    }
 }
