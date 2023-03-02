@@ -15,7 +15,8 @@
         </tr>
         @foreach ($items as $item)
             <tr>
-               <td>{{$item->getData()}}</td>
+               <td>{{$item->message}}</td>
+                <td>{{$item->person->name}}</td>
             </tr>
         @endforeach
     </table>
