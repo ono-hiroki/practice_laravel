@@ -10,9 +10,9 @@ class Person extends Model
 {
     use HasFactory;
 
-    public function board(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function board()
     {
-        return $this->hasOne('App\Models\Board');
+        return $this->hasMany('App\Models\Board');
     }
 
     function getData(): string
