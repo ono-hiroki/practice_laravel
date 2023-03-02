@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
 {
+    public function person()
+    {
+        return $this->belongsTo('App\Models\Person');
+    }
+
     protected $guarded = array('id');
 
     public static $rules = array(
@@ -17,6 +22,6 @@ class Board extends Model
 
     public function getData(): string
     {
-        return $this->id . ': ' . $this->title . ' (' . $this->message . ')';
+        return $this->id . ': ' . $this->title . ' (' . $this->person->name . ')';
     }
 }
