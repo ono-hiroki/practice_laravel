@@ -9,6 +9,7 @@
     tr th { background-color:#999; color:white; padding:5px 20px; }
     tr td { border: solid 1px #aaa; color:#999; padding:5px 20px; }
 </style>
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @section('title', 'Hello/Index')
 
 @section('menubar')

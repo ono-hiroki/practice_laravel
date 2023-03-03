@@ -38,6 +38,10 @@ FROM base AS development
 
 COPY ./infra/docker/php/php.development.ini /usr/local/etc/php/php.ini
 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+  && apt-get install -y nodejs \
+  && npm install -g npm
+
 FROM development AS development-xdebug
 
 RUN pecl install xdebug && \

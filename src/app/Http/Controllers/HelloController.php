@@ -29,7 +29,7 @@ class HelloController extends Controller
             $sort = 'id';
         }
 
-        $items = Person::orderBy($sort, 'asc')->simplePaginate(5);
+        $items = Person::orderBy($sort, 'asc')->Paginate(5);
 
         return view('hello.index', ['msg' => $msg, 'items' => $items, 'sort' => $sort]);
     }
