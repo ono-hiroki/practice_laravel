@@ -27,6 +27,8 @@ Route::post('/hello', [HelloController::class, 'post']);
 Route::get('/hello/reset', [HelloController::class, 'reset']);
 Route::get('/hello/session', [HelloController::class, 'ses_get']);
 Route::post('/hello/session', [HelloController::class, 'ses_put']);
+Route::get('/hello/auth', [HelloController::class, 'getAuth']);
+Route::post('/hello/auth', [HelloController::class, 'postAuth']);
 
 Route::get('person', [PersonController::class, 'index']);
 Route::get('person/find', [PersonController::class, 'find']);
