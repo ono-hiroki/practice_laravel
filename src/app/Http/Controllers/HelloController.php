@@ -6,6 +6,7 @@ use App\Http\Requests\HelloRequest;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,6 +14,7 @@ class HelloController extends Controller
 {
     public function index(Request $request, Response $response)
     {
+        $user = Auth::user();
         if ($request->hasCookie('msg')) {
             $msg = 'Cookie: ' . $request->cookie('msg');
         } else {
@@ -31,7 +33,7 @@ class HelloController extends Controller
 
         $items = Person::orderBy($sort, 'asc')->Paginate(5);
 
-        return view('hello.index', ['msg' => $msg, 'items' => $items, 'sort' => $sort]);
+        return view('hello.index', ['msg' => $msg, 'items' => $items, 'sort' => $sort, 'user' => $user]);
     }
 
     public function post(Request $request)

@@ -1,13 +1,40 @@
 @extends('layouts.helloapp')
 <style>
-    .pagination { font-size:10pt; }
-    .pagination li { display:inline-block; }
-    tr th a:link { color:white; }
-    tr th a:visited { color:white; }
-    tr th a:hover { color:white; }
-    tr th a:active { color:white; }
-    tr th { background-color:#999; color:white; padding:5px 20px; }
-    tr td { border: solid 1px #aaa; color:#999; padding:5px 20px; }
+    .pagination {
+        font-size: 10pt;
+    }
+
+    .pagination li {
+        display: inline-block;
+    }
+
+    tr th a:link {
+        color: white;
+    }
+
+    tr th a:visited {
+        color: white;
+    }
+
+    tr th a:hover {
+        color: white;
+    }
+
+    tr th a:active {
+        color: white;
+    }
+
+    tr th {
+        background-color: #999;
+        color: white;
+        padding: 5px 20px;
+    }
+
+    tr td {
+        border: solid 1px #aaa;
+        color: #999;
+        padding: 5px 20px;
+    }
 </style>
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @section('title', 'Hello/Index')
@@ -18,6 +45,12 @@
 @endsection
 
 @section('content')
+    @if(Auth::check())
+        <p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
+    @else
+        <p>※ログインしていません。(<a href="/login">ログイン</a> | <a href="/register">登録</a>)</p>
+    @endif
+
     <p>ここが本文のコンテンツです。</p>
     <p>必要なだけ記述できます。</p>
     @include('components.message', ['msg_title'=>'OK', 'msg_content'=>'サブビューです。'])
